@@ -70,6 +70,8 @@ resource "aws_instance" "jenkins" {
     inline = [
       "chmod +x /tmp/install_dependencies.sh",
       "/tmp/install_dependencies.sh args",
+      "sleep 190",
+      "sudo docker exec jenkins cat /var/jenkins_home/secrets/initialAdminPassword",
     ]
   }
 }
